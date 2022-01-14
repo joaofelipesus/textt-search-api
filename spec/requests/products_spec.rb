@@ -5,13 +5,21 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   describe 'GET api/products' do
     let!(:category) { create(:category, name: 'First category') }
-    let!(:product) { create(:product, name: 'Some cool product', price: 99.9, category_ids: [category.id]) }
+    let!(:product) do
+      create(
+        :product,
+        name: 'Some cool product',
+        price: 99.9,
+        category_ids: [category.id],
+        description: 'Some description'
+      )
+    end
     let(:expected_response) do
       [
         {
           'id' => product.id,
           'name' => 'Some cool product',
-          'description' => 'MyText',
+          'description' => 'Some description',
           'price' => '99.9',
           'categories' => [{ 'id' => category.id, 'name' => 'First category' }]
         }
