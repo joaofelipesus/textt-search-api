@@ -18,14 +18,7 @@ class Product < ApplicationRecord
     end
   end
 
-  # private
-
-  def as_indexed_json(_options={})
+  def as_indexed_json(_options = {})
     as_json(include: { categories: { only: :name } })
   end
-
-  # def normalized_categories
-  #   # categories.map(&:name)
-  #   [{nome: "valô"}]
-  # end
 end
