@@ -179,6 +179,8 @@ GEM
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
+    pghero (2.8.2)
+      activerecord (>= 5)
     puma (5.5.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -281,6 +283,7 @@ DEPENDENCIES
   faker
   jbuilder
   pg (~> 1.1)
+  pghero
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.1)
