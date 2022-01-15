@@ -13,9 +13,9 @@ module SearchEngines
     end
 
     def search
-      search_by_name
+      search_by_category
         .or(search_by_description)
-        .or(search_by_category)
+        .or(search_by_name)
     end
 
     private
@@ -27,11 +27,11 @@ module SearchEngines
     end
 
     def search_by_name
-      Product.joins(:categories).where('products.name ILIKE ?', search_term)
+      Product.where('products.name ILIKE ?', search_term)
     end
 
     def search_by_description
-      Product.joins(:categories).where('description ILIKE ?', search_term)
+      Product.where('description ILIKE ?', search_term)
     end
 
     def search_by_category

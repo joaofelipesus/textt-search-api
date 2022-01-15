@@ -5,6 +5,6 @@ FactoryBot.define do
     name { Faker::Internet.unique.email }
     description { Faker::Lorem.paragraph }
     price { Faker::Number.decimal(l_digits: 2, r_digits: 2) }
-    category_ids { [Category.all.take(1).first.id] }
+    category_ids { [] }
   end
 end
