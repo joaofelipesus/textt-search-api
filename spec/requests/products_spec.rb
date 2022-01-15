@@ -21,7 +21,9 @@ RSpec.describe 'Products', type: :request do
           'name' => 'Some cool product',
           'description' => 'Some description',
           'price' => '99.9',
-          'categories' => [{ 'id' => category.id, 'name' => 'First category' }]
+          'categories' => [
+            { 'id' => category.id, 'name' => 'First category', 'badge_color' => category.badge_color }
+          ]
         }
       ]
     end
