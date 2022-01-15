@@ -58,6 +58,7 @@ group :test do
   # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov'
   # Simple console output formatter for SimpleCov
+  gem 'elasticsearch-extensions'
   gem 'simplecov-console'
 end
 

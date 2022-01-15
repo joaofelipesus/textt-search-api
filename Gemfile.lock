@@ -99,6 +99,9 @@ GEM
       elasticsearch-transport (= 7.16.3)
     elasticsearch-api (7.16.3)
       multi_json
+    elasticsearch-extensions (0.0.33)
+      ansi
+      elasticsearch
     elasticsearch-transport (7.16.3)
       faraday (~> 1)
       multi_json
@@ -271,6 +274,7 @@ DEPENDENCIES
   bootsnap
   database_cleaner-active_record
   debug
+  elasticsearch-extensions
   elasticsearch-model!
   elasticsearch-rails!
   factory_bot_rails

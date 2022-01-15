@@ -12,6 +12,9 @@ ENV INSTALL_PATH /store
 # github actions use on test pipeline
 ENV DEV_DATABASE "postgres"
 
+# elastic search
+ENV ELASTICSEARCH_URL "elasticsearch"
+
 # create workdir
 RUN mkdir -p $INSTALL_PATH
 
