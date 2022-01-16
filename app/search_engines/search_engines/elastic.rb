@@ -11,7 +11,7 @@ module SearchEngines
 
     private
 
-    MAX_RETURNED_RESULTS = 1000
+    MAX_RETURNED_RESULTS = 100
 
     def product_ids_found
       Product.search(search_by, size: MAX_RETURNED_RESULTS).results.map(&:_id)
