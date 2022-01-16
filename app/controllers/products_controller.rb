@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   private
 
   def search
-    return Product.all unless params[:engine]
+    return Product.all.take(100) unless params[:engine]
 
     engine.search(params[:search_by])
   end
