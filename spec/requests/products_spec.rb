@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
   describe 'GET api/products' do
+    let(:search_engine) { double(:search_engine) }
+
     let!(:category) { create(:category, name: 'First category') }
 
     let!(:product) do
@@ -36,14 +38,32 @@ RSpec.describe 'Products', type: :request do
     end
 
     context 'when search using ilike' do
-      let(:search_engine) { double(:search_engine) }
-
       it 'calls ilike search engine' do
         allow(SearchEngines::Ilike).to receive(:new).with('some cool term').and_return(search_engine)
         allow(search_engine).to receive(:search).and_return([])
         expect(SearchEngines::Ilike).to receive(:search).at_least(:once)
 
         get('/api/products?engine=ilike&search_by=some+cool+term')
+      end
+    end
+
+    context 'when search using index' do
+      it 'calls ilike search engine' do
+        allow(SearchEngines::BySearchIndex).to receive(:new).with('some cool term').and_return(search_engine)
+        allow(search_engine).to receive(:search).and_return([])
+        expect(SearchEngines::BySearchIndex).to receive(:search).at_least(:once)
+
+        get('/api/products?engine=index&search_by=some+cool+term')
+      end
+    end
+
+    context 'when search using elastic' do
+      it 'calls ilike search engine' do
+        allow(SearchEngines::Elastic).to receive(:new).with('some cool term').and_return(search_engine)
+        allow(search_engine).to receive(:search).and_return([])
+        expect(SearchEngines::Elastic).to receive(:search).at_least(:once)
+
+        get('/api/products?engine=elastic&search_by=some+cool+term')
       end
     end
   end

@@ -9,9 +9,19 @@ class ProductsController < ApplicationController
   private
 
   def search
-    search_engine = params[:engine]
-    return Product.all unless search_engine
+    return Product.all unless params[:engine]
 
-    SearchEngines::Ilike.search(params[:search_by]) if search_engine == 'ilike'
+    engine.search(params[:search_by])
+  end
+
+  def engine
+    case params[:engine]
+    when 'ilike'
+      SearchEngines::Ilike
+    when 'index'
+      SearchEngines::BySearchIndex
+    when 'elastic'
+      SearchEngines::Elastic
+    end
   end
 end
