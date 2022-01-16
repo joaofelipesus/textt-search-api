@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_003703) do
+ActiveRecord::Schema.define(version: 2022_01_16_015024) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_003703) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "search_index"
-    t.index ["search_index"], name: "index_products_on_search_index"
+    t.index ["search_index"], name: "index_products_on_search_index", opclass: :gist_trgm_ops, using: :gist
   end
 
 end

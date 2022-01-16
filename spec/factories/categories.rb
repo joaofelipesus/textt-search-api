@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :category do
     name { Faker::Games::Zelda.unique.game }
-    badge_color { '123abc' }
+    badge_color { Faker::Color.hex_color }
   end
 end
