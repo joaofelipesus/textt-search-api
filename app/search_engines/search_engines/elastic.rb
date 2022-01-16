@@ -3,7 +3,6 @@
 module SearchEngines
   # Uses elastic search to match full words
   class Elastic < SearchEngines::Base
-
     def search
       return [] unless product_ids_found
 
@@ -12,7 +11,7 @@ module SearchEngines
 
     private
 
-    MAX_RETURNED_RESULTS = 100
+    MAX_RETURNED_RESULTS = 1000
 
     def product_ids_found
       Product.search(search_by, size: MAX_RETURNED_RESULTS).results.map(&:_id)
