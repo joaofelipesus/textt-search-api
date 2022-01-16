@@ -19,7 +19,8 @@ RSpec.describe Product, type: :model do
         'price' => product.price.to_s,
         'created_at' => product.created_at.as_json,
         'updated_at' => product.updated_at.as_json,
-        'categories' => []
+        'categories' => [],
+        'search_index' => product.search_index
       }
     )
   end

@@ -48,6 +48,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+  gem 'byebug'
 end
 
 group :test do

@@ -30,3 +30,5 @@
 
 # simplecov
 coverage/
+
+.byebug_history
